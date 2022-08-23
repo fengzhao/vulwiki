@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="瓦都剋">
+        <link rel="canonical" href="https://vulwiki.fengzhao.me/android/root/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>2.2.1 Root环境 - 漏洞知识库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">漏洞知识库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">1. Web安全漏洞 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../web/sql/" class="dropdown-item">1.1 SQL注入漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/xss/" class="dropdown-item">1.2 跨站脚本漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/ssrf/" class="dropdown-item">1.3 服务端请求伪造漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/csrf/" class="dropdown-item">1.4 跨站请求伪造漏洞</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.5 文件操作漏洞</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../web/fileupload/" class="dropdown-item">1.5.1 任意格式文件上传</a>
+</li>
+            
+<li>
+    <a href="../../web/fileinclude/" class="dropdown-item">1.5.2 任意文件读取/包含/删除</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../web/oscommandexec/" class="dropdown-item">1.6 命令执行漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/dirtraversal/" class="dropdown-item">1.7 目录浏览漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/xxe/" class="dropdown-item">1.8 XML实体注入漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/ssti/" class="dropdown-item">1.9 服务端模版注入漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/urlre/" class="dropdown-item">1.10 开放重定向漏洞</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.11 管理工具信息泄漏</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../web/svn/" class="dropdown-item">1.11.1 SVN信息泄漏</a>
+</li>
+            
+<li>
+    <a href="../../web/git/" class="dropdown-item">1.11.2 Git信息泄漏</a>
+</li>
+            
+<li>
+    <a href="../../web/ds_store/" class="dropdown-item">1.11.3 DS_Store信息泄漏</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../web/weakpass/" class="dropdown-item">1.12 弱口令漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/crlf/" class="dropdown-item">1.13 HTTP请求头注入漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/errorinfo/" class="dropdown-item">1.14 错误信息泄漏漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/hpp/" class="dropdown-item">1.15 HTTP参数污染漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../../web/test/" class="dropdown-item">1.16 测试数据泄漏漏洞</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.17 逻辑漏洞</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../web/apiunauth/" class="dropdown-item">1.17.1 接口未授权访问漏洞</a>
+</li>
+            
+<li>
+    <a href="../../web/yuequan/" class="dropdown-item">1.17.2 越权操作漏洞</a>
+</li>
+            
+<li>
+    <a href="../../web/pay/" class="dropdown-item">1.17.3 支付模块漏洞</a>
+</li>
+            
+<li>
+    <a href="../../web/usercenter/" class="dropdown-item">1.17.4 用户模块漏洞</a>
+</li>
+            
+<li>
+    <a href="../../web/yanzheng/" class="dropdown-item">1.17.5 验证码模块漏洞</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">2. 安卓客户端 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.1 客户端程序安全</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../fanbianyi/" class="dropdown-item">2.1.1 反编译</a>
+</li>
+            
+<li>
+    <a href="../sign/" class="dropdown-item">2.1.2 安装包签名</a>
+</li>
+            
+<li>
+    <a href="../integrity/" class="dropdown-item">2.1.3 应用完整性</a>
+</li>
+            
+<li>
+    <a href="../allowbackup/" class="dropdown-item">2.1.4 任意数据备份</a>
+</li>
+            
+<li>
+    <a href="../debuggable/" class="dropdown-item">2.1.5 程序可被调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.2 运行环境安全</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active">2.2.1 Root环境</a>
+</li>
+            
+<li>
+    <a href="../moniqi/" class="dropdown-item">2.2.2 模拟器环境</a>
+</li>
+            
+<li>
+    <a href="../proxy/" class="dropdown-item">2.2.3 代理网络环境</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.3 敏感信息安全</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../sqliteinfo/" class="dropdown-item">2.3.1 SQLite敏感信息</a>
+</li>
+            
+<li>
+    <a href="../logcat/" class="dropdown-item">2.3.2 LogCat敏感信息</a>
+</li>
+            
+<li>
+    <a href="../info/" class="dropdown-item">2.3.3 硬编码敏感信息</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.4 网络通信安全</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../aes/" class="dropdown-item">2.4.1 通信加密</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.5 安全策略设置</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../keyboard/" class="dropdown-item">2.5.1 键盘记录</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">3. 其他安全设置 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../setting/secgroup/" class="dropdown-item">3.1 安全组</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">3.2 数据库</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../db/update/" class="dropdown-item">3.2.1 MySQL</a>
+</li>
+            
+<li>
+    <a href="../../db/update/" class="dropdown-item">3.2.2 Redis</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../setting/middleware/" class="dropdown-item">3.3 第三方组件</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">3.4 中间件</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.1 Apache</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.2 Nginx</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.3 Tomcat</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.4 Spring</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.5 Elasticsearch</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.6 Hadoop</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.7 Docker</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../setting/secapi/" class="dropdown-item">3.5 如何设计一个安全的对外接口</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../debuggable/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../moniqi/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/fengzhao/vulwiki/edit/master/docs/android/root.md" class="nav-link">Edit on 漏洞知识库</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#root" class="nav-link">Root环境检测</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#0x01" class="nav-link">0x01 漏洞描述</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#0x02" class="nav-link">0x02 漏洞危害</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#0x03" class="nav-link">0x03 修复意见</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="root">Root环境检测</h1>
+<h2 id="0x01">0x01 漏洞描述</h2>
+<p>Android安全架构是基于Linux多用户机制的访问控制。在Linux操作系统中，root的权限是最高的，也被称为超级权限的拥有者。在系统中，每个文件、目录和进程，都归属于某一个用户，没有用户许可其它普通用户是无法操作的，但对root除外。</p>
+<p>root用户的特权性还表现在：</p>
+<ul>
+<li>对文件或目录进行读取、修改或删除；</li>
+<li>对可执行程序的执行、终止；</li>
+<li>对硬件设备的添加、创建和移除等；</li>
+<li>对文件和目录进行属主和权限进行修改，以适合系统管理的需要；</li>
+<li>root是超越任何用户和用户组的，基于用户ID的权限机制的沙盒是无法隔离的。</li>
+</ul>
+<h2 id="0x02">0x02 漏洞危害</h2>
+<p>攻击者可在root的终端上对应用程序进行动态调试、内存访问篡改、Hook应用程序与服务端交互流量等。</p>
+<h2 id="0x03">0x03 修复意见</h2>
+<h3 id="31">3.1 查看系统是否为测试版</h3>
+<p>可以查看发布的系统版本，是test-keys（测试版），还是release-keys（发布版）。</p>
+<p>可是在实际情况下，也有某些厂家的正式发布版本也是test-keys</p>
+<h3 id="32-superuserapk">3.2 检查是否存在Superuser.apk</h3>
+<p>Superuser.apk是一个被广泛使用的用来root安卓设备的软件，所以可以检查这个app是否存在。</p>
+<h3 id="33-su">3.3 检查su命令</h3>
+<p>su是Linux下切换用户的命令，在使用时不带参数，就是切换到超级用户。通常我们获取root权限，就是使用su命令来实现的，所以可以检查这个命令是否存在。</p>
+<h3 id="34-busybox">3.4 执行busybox</h3>
+<p>BusyBox集成压缩了 Linux 的许多工具和命令，所以若设备root了，很可能Busybox也被安装上了。</p>
+<h3 id="35-data">3.5 访问/data目录，查看读写权限</h3>
+<p>在Android系统中，有些目录是普通用户不能访问的，例如 <code>/data</code>、<code>/system</code>、<code>/etc</code>等。</p>
+<p>可以以<code>/data</code>为例，来进行读写访问。先写入一个文件，然后读出，查看内容是否匹配，若匹配，才认为系统已经root了。</p>
+<p>具体代码可参考：</p>
+<p><a href="https://blog.csdn.net/lintax/article/details/70988565">Android root检测方法小结</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2019 瓦都剋</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

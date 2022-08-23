@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="瓦都剋">
+        <link rel="canonical" href="https://vulwiki.fengzhao.me/web/xss/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>1.2 跨站脚本漏洞 - 漏洞知识库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">漏洞知识库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">1. Web安全漏洞 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../sql/" class="dropdown-item">1.1 SQL注入漏洞</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">1.2 跨站脚本漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../ssrf/" class="dropdown-item">1.3 服务端请求伪造漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../csrf/" class="dropdown-item">1.4 跨站请求伪造漏洞</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.5 文件操作漏洞</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../fileupload/" class="dropdown-item">1.5.1 任意格式文件上传</a>
+</li>
+            
+<li>
+    <a href="../fileinclude/" class="dropdown-item">1.5.2 任意文件读取/包含/删除</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../oscommandexec/" class="dropdown-item">1.6 命令执行漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../dirtraversal/" class="dropdown-item">1.7 目录浏览漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../xxe/" class="dropdown-item">1.8 XML实体注入漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../ssti/" class="dropdown-item">1.9 服务端模版注入漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../urlre/" class="dropdown-item">1.10 开放重定向漏洞</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.11 管理工具信息泄漏</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../svn/" class="dropdown-item">1.11.1 SVN信息泄漏</a>
+</li>
+            
+<li>
+    <a href="../git/" class="dropdown-item">1.11.2 Git信息泄漏</a>
+</li>
+            
+<li>
+    <a href="../ds_store/" class="dropdown-item">1.11.3 DS_Store信息泄漏</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../weakpass/" class="dropdown-item">1.12 弱口令漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../crlf/" class="dropdown-item">1.13 HTTP请求头注入漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../errorinfo/" class="dropdown-item">1.14 错误信息泄漏漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../hpp/" class="dropdown-item">1.15 HTTP参数污染漏洞</a>
+</li>
+                                    
+<li>
+    <a href="../test/" class="dropdown-item">1.16 测试数据泄漏漏洞</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">1.17 逻辑漏洞</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../apiunauth/" class="dropdown-item">1.17.1 接口未授权访问漏洞</a>
+</li>
+            
+<li>
+    <a href="../yuequan/" class="dropdown-item">1.17.2 越权操作漏洞</a>
+</li>
+            
+<li>
+    <a href="../pay/" class="dropdown-item">1.17.3 支付模块漏洞</a>
+</li>
+            
+<li>
+    <a href="../usercenter/" class="dropdown-item">1.17.4 用户模块漏洞</a>
+</li>
+            
+<li>
+    <a href="../yanzheng/" class="dropdown-item">1.17.5 验证码模块漏洞</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">2. 安卓客户端 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.1 客户端程序安全</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../android/fanbianyi/" class="dropdown-item">2.1.1 反编译</a>
+</li>
+            
+<li>
+    <a href="../../android/sign/" class="dropdown-item">2.1.2 安装包签名</a>
+</li>
+            
+<li>
+    <a href="../../android/integrity/" class="dropdown-item">2.1.3 应用完整性</a>
+</li>
+            
+<li>
+    <a href="../../android/allowbackup/" class="dropdown-item">2.1.4 任意数据备份</a>
+</li>
+            
+<li>
+    <a href="../../android/debuggable/" class="dropdown-item">2.1.5 程序可被调试</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.2 运行环境安全</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../android/root/" class="dropdown-item">2.2.1 Root环境</a>
+</li>
+            
+<li>
+    <a href="../../android/moniqi/" class="dropdown-item">2.2.2 模拟器环境</a>
+</li>
+            
+<li>
+    <a href="../../android/proxy/" class="dropdown-item">2.2.3 代理网络环境</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.3 敏感信息安全</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../android/sqliteinfo/" class="dropdown-item">2.3.1 SQLite敏感信息</a>
+</li>
+            
+<li>
+    <a href="../../android/logcat/" class="dropdown-item">2.3.2 LogCat敏感信息</a>
+</li>
+            
+<li>
+    <a href="../../android/info/" class="dropdown-item">2.3.3 硬编码敏感信息</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.4 网络通信安全</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../android/aes/" class="dropdown-item">2.4.1 通信加密</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">2.5 安全策略设置</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../android/keyboard/" class="dropdown-item">2.5.1 键盘记录</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">3. 其他安全设置 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../setting/secgroup/" class="dropdown-item">3.1 安全组</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">3.2 数据库</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../db/update/" class="dropdown-item">3.2.1 MySQL</a>
+</li>
+            
+<li>
+    <a href="../../db/update/" class="dropdown-item">3.2.2 Redis</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../setting/middleware/" class="dropdown-item">3.3 第三方组件</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">3.4 中间件</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.1 Apache</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.2 Nginx</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.3 Tomcat</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.4 Spring</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.5 Elasticsearch</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.6 Hadoop</a>
+</li>
+            
+<li>
+    <a href="../../middleware/update/" class="dropdown-item">3.4.7 Docker</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../setting/secapi/" class="dropdown-item">3.5 如何设计一个安全的对外接口</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../sql/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../ssrf/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/fengzhao/vulwiki/edit/master/docs/web/xss.md" class="nav-link">Edit on 漏洞知识库</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#xss" class="nav-link">XSS</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#0x01" class="nav-link">0x01 漏洞描述</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#0x02" class="nav-link">0x02 常见应用场景</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#0x03" class="nav-link">0x03 漏洞危害</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#0x04" class="nav-link">0x04 修复建议</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="xss">XSS</h1>
+<h2 id="0x01">0x01 漏洞描述</h2>
+<p>XSS全称为Cross Site Scripting，为了和CSS分开简写为XSS，中文名为跨站脚本。该漏洞发生在用户端，是指恶意攻击者往Web站点里插入恶意脚本代码，当用户浏览该网站时，嵌入其里面的脚本代码会被执行，从而达到恶意用户的特殊目的。</p>
+<p>根据是否写入数据看来分类主要有反射性和存储型两大类。</p>
+<ul>
+<li>反射型跨站脚本（Reflected XSS）</li>
+<li>储存型跨站脚本（Persistent XSS）</li>
+</ul>
+<p>区别：存储型XSS的恶意代码存在数据库里，反射型XSS的恶意代码存在URL里。</p>
+<h2 id="0x02">0x02 常见应用场景</h2>
+<h3 id="21-xss">2.1 反射型XSS</h3>
+<p>反射性XSS通常需要被攻击者点击对应的链接才能触发，且受到XSS Auditor、NoScript等防御手段的影响较大。</p>
+<p>反射型xss应用场景：比如搜索、查询，接口调用，跳转，http头获取参数地理位置，cookie，id，referer等一切输入、输出的地方</p>
+<h3 id="22-xss">2.2 存储型XSS</h3>
+<p>存储型XSS由于存储在数据库或其他持久性中间件中，所以用户只需浏览了包含恶意代码的页面即可在用户无感知的情况下触发。</p>
+<p>反射型xss应用场景：比如注册处、用户名、地址、头像等信息，用户反馈、留言、修改个人信息、发表文章、评论、转发、私信等一切输入输出的地方。</p>
+<h2 id="0x03">0x03 漏洞危害</h2>
+<ol>
+<li>钓鱼欺骗：最典型的就是利用目标网站的反射型跨站脚本漏洞将目标网站重定向到钓鱼网站，或者注入钓鱼JavaScript以监控目标网站的表单输入，甚至发起基于DHTML更高级的钓鱼攻击方式。</li>
+<li>网站挂马：跨站后利用IFrame嵌入隐藏的恶意网站或者将被攻击者定向到恶意网站上，或者弹出恶意网站窗口等方式都可以进行挂马攻击。</li>
+<li>身份盗用：Cookie是用户对于特定网站的身份验证标志，XSS可以盗取用户的Cookie，就可以获取到用户对网站的操作权限，从而查看用户隐私信息。</li>
+<li>用户劫持：一些高级的XSS，比如xss蠕虫等。</li>
+<li>控制受害者机器向其他系统发起攻击。</li>
+</ol>
+<h2 id="0x04">0x04 修复建议</h2>
+<h3 id="41">4.1 代码层面</h3>
+<h4 id="411">4.1.1 在服务端进行输入验证（输入验证）</h4>
+<p>服务器后端进行输入验证，包括输入的数据类型、数据长度、数据格式、特殊字符等进行验证。</p>
+<h4 id="412">4.1.2 数据输出实体编码（输出编码）</h4>
+<p>输出编码手段主要有3种编码：URL编码、HTML编码和JavaScript编码。</p>
+<p>JAVA：开源的<code>ESAPI library</code>；框架（Spring：<code>HtmlUtils.htmlEscape</code>） 
+PHP：使用<code>htmlspecialchars</code>等函数进行过滤输出</p>
+<h3 id="42">4.2 其他层面</h3>
+<h4 id="421">4.2.1 使用模版引擎</h4>
+<p>开启模板引擎自带的 HTML 转义功能。例如： 在 ejs 中，尽量使用 <code>&lt;%= data %&gt;</code> 而不是 <code>&lt;%- data %&gt;</code>； 在 doT.js 中，尽量使用<code>{{! data }</code> 而不是 <code>{{= data }</code>； 在 FreeMarker 中，确保引擎版本高于 2.3.24，并且选择正确的 <code>freemarker.core.OutputFormat</code>。</p>
+<h4 id="422">4.2.2 避免内敛事件</h4>
+<p>尽量不要使用 <code>onLoad="onload('{{data}}')"</code>、<code>onClick="go('{{action}}')"</code>这种拼接内联事件的写法。在 JavaScript 中通过 <code>.addEventlistener()</code>事件绑定会更安全。</p>
+<h4 id="423-html">4.2.3 避免拼接 HTML</h4>
+<p>前端采用拼接 HTML 的方法比较危险，如果框架允许，使用 createElement、setAttribute 之类的方法实现。或者采用比较成熟的渲染框架，如 Vue/React 等。</p>
+<h4 id="424-csp">4.2.4 使用CSP</h4>
+<p>Content Security Policy：禁止加载外域代码，防止复杂的攻击逻辑；禁止外域提交，网站被攻击后，用户的数据不会泄露到外域；禁止内联脚本执行；禁止未授权的脚本执行。</p>
+<h4 id="425-httponly">4.2.5 使用httponly</h4>
+<p>HTTP-only Cookie: 禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。httponly无法完全的防御xss漏洞，它只是规定了不能使用js去获取cookie的内容，因此它只能防御利用xss进行cookie劫持的问题。Httponly是在set-cookie时标记的，可对单独某个参数标记也可对全部参数标记。由于设置httponly的方法比较简单，使用也很灵活，并且对防御cookie劫持非常有用，因此已经渐渐成为一种默认的标准。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2019 瓦都剋</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
