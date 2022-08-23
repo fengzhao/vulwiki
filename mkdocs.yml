@@ -2,11 +2,11 @@
 site_name: 漏洞知识库
 site_description: 常见漏洞知识库, wiki, 漏洞wiki, 漏洞手册
 site_author: 瓦都剋
-site_url: https://vulwiki.readthedocs.io/zh_CN/latest/
+site_url: https://vulwiki.fengzhao.me
 
 # Repository
 repo_name: '漏洞知识库'
-repo_url: 'https://github.com/w2n1ck/vulwiki/'
+repo_url: 'https://github.com/fengzhao/vulwiki/'
 
 # Copyright
 copyright: 'Copyright &copy; 2019 瓦都剋'
